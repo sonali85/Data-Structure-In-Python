@@ -1,0 +1,131 @@
+A stack is a linear data structure that stores items in a Last-In/First-Out (LIFO) or First-In/Last-Out (FILO) manner. In stack, a new element 
+is added at one end and an element is removed from that end only. The insert and delete operations are often called push and pop.
+
+The functions associated with stack are:
+empty() – Returns whether the stack is empty – Time Complexity : O(1)
+size() – Returns the size of the stack – Time Complexity : O(1)
+top() – Returns a reference to the top most element of the stack – Time Complexity : O(1)
+push(g) – Adds the element ‘g’ at the top of the stack – Time Complexity : O(1)
+pop() – Deletes the top most element of the stack – Time Complexity : O(1)
+
+Stack in Python can be implemented using following ways:
+list
+collections.deque
+queue.LifoQueue
+
+
+======================================using list==================================
+class stack:
+    def __init__(self):
+        #self.data=data
+        self.stk = []
+
+    def push(self,data):
+        self.stk.append(data)
+
+    def pop(self):
+        if self.stk:
+            print("pop data = ",self.stk.pop())
+        else:
+            print("empty stack")
+
+    def print_stack(self):
+
+        st = self.stk[::-1]
+        if self.stk:
+            print(st)
+        else:
+            print("empty")
+obj = stack()
+obj.pop()
+obj.print_stack()
+obj.push(2)
+obj.push(4)
+obj.push(5)
+obj.push(27)
+obj.print_stack()
+obj.pop()
+obj.print_stack()
+obj.pop()
+obj.print_stack()
+obj.pop()
+obj.print_stack()
+obj.pop()
+obj.print_stack()
+
+
+
+
+======================================collections.deque==================================
+
+Implementation using collections.deque
+Python stack can be implemented using deque class from collections module. Deque is preferred over list in the cases where
+we need quicker append and pop operations from both the ends of the container, as deque provides an O(1) time complexity for append and pop operations as 
+compared to list which provides O(n) time complexity.
+Same methods on deque as seen in list are used, append() and pop().
+
+# from collections import deque
+#
+# st = deque()
+# def push(data):
+#     print("append data =",data)
+#     st.append(data)
+# def pop():
+#     if st:
+#         print("pop = ", st.pop())
+#     else:
+#         print("empty list")
+# push(2)
+# push(3)
+# pop()
+# pop()
+# pop()
+
+
+#======================================queue import LifoQueue ==================================
+
+Implemenation using queue module
+Queue module also has a LIFO Queue, which is basically a Stack. Data is inserted into Queue using put() function and get() takes data out from the Queue.
+There are various functions available in this module:
+
+maxsize – Number of items allowed in the queue.
+empty() – Return True if the queue is empty, False otherwise.
+full() – Return True if there are maxsize items in the queue. If the queue was initialized with maxsize=0 (the default), then full() never returns True.
+get() – Remove and return an item from the queue. If queue is empty, wait until an item is available.
+get_nowait() – Return an item if one is immediately available, else raise QueueEmpty.
+put(item) – Put an item into the queue. If the queue is full, wait until a free slot is available before adding the item.
+put_nowait(item) – Put an item into the queue without blocking.
+qsize() – Return the number of items in the queue. If no free slot is immediately available, raise QueueFull.
+
+
+from queue import LifoQueue
+
+st = LifoQueue(maxsize=3)
+def push(data):
+    if st.full():
+        print("full")
+    else:
+        print("append data =",data)
+        st.put(data)
+def pop():
+     if st.empty():
+         print("empty list")
+     else:
+         print("pop = ", st.get())
+
+
+push(2)
+push(3)
+push(4)
+push(4)
+print(st.full())
+print(st.qsize())
+# push(0)
+# push(34)
+pop()
+pop()
+pop()
+pop()
+
+
+
