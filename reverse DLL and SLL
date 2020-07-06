@@ -1,0 +1,38 @@
+
+
+#inp = 1 2 3 4
+#oup = 1
+
+def reverse_SLL(head):
+    if head:
+        temp = head
+        prev =None
+        while temp is not None:
+            orignal = temp.next
+            temp.next=prev
+            prev = temp
+            temp = orignal
+        head = prev
+
+#inp = 1 2 3 4
+#oup =  p-1-next
+
+def rewvrse_DLL(head):
+    if head:
+        temp = head
+        new = None
+        while temp is not None:
+            new = temp.prev
+            temp.prev = temp.next
+            temp.next=new
+            temp = temp.prev
+        head = new
+
+
+
+
+
+
+
+
+
