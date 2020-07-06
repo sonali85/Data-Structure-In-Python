@@ -1,0 +1,44 @@
+For SLL
+
+
+def remove_depicate_sorted_SLL(head):
+    if head:
+        temp=head
+        while temp.next is not None:
+            if temp.data == temp.next.data:
+                new_link = temp.next.next
+                temp.next = None
+                temp.next = new_link
+            else:
+                temp = temp.next
+    return head
+
+def remove_depicate_unsorted_SLL(head):
+    if head:
+        temp = head
+        while temp.next is not None:
+            curr = head
+            while curr.next is not None:
+                if temp.data == curr.next.data:
+                    new_link = curr.next.next
+                    curr.next = None
+                    curr.next = new_link
+
+                else:
+                    curr = curr.next
+            temp = temp.next
+
+
+Time Complexity: O(n2)
+Auxiliary Space: O(1)
+
+
+For DLL: Same as above 
+
+3 approaches for 3 solution
+1 . usual 
+2 .Sort the elements of the doubly linked list using Merge Sort and Remove duplicates in linear time using the algorithm to remove duplicates from a sorted doubly linked list.
+3. We traverse the doubly linked list from head to end. For every newly encountered element, we check whether it is in the hash table: if yes, we remove it;
+otherwise we put it in the hash table.
+
+
