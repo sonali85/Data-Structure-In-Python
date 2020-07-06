@@ -1,0 +1,12 @@
+1 - 2 - 3- 4
+
+def get_nth_element(head):
+    if head:
+        temp = head
+        cnt = 0
+        while temp is not None:
+            if pos==cnt:
+                return temp.data
+            temp = temp.next
+            cnt = cnt+1
+        return False
