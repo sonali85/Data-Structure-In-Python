@@ -1,0 +1,37 @@
+inp =
+1 2 3 4 --
+  |---5-- |
+output = 1 2 3 4 5
+
+#using hash
+def detect_remove_loop_SLL(head):
+    hast = set()
+    temp = head
+    while temp is not None:
+        if temp in s:
+            return True
+        hast.add(temp)
+        temp=temp.next
+    return False
+
+#
+#  Floyd’s Cycle-Finding Algorithm
+# Approach: This is the fastest method and has been described below:
+#
+# Traverse linked list using two pointers.
+# Move one pointer(slow_p) by one and another pointer(fast_p) by two.
+# If these pointers meet at the same node then there is a loop. If pointers do not meet then linked list doesn’t have a loop.
+
+def floyd_cycle(head):
+    if head:
+        slow = head
+        fast = head
+        while slow and fast and fast.next:
+            slow=slow.nect
+            fast = fast.next.next
+            if slow==fast:
+                return True
+        return False
+
+#Marking visited nodes without modifying the linked list data structure
+
