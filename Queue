@@ -1,6 +1,8 @@
 Like stack, queue is a linear data structure that stores items in First In First Out (FIFO) manner. With a queue the least recently added item is removed first.
 A good example of queue is any queue of consumers for a resource where the consumer that came first is served first.
 
+https://www.bigocheatsheet.com/
+
 #-----------------using list =-------------------
 #appaned()
 #pop(0)
@@ -19,3 +21,29 @@ q.get()
 q.full()
 q.empty()
 q.qsize()
+=============================================
+
+#from queue import Queue
+class Queue:
+    def __init__(self,size):
+        self.list_size = size
+        self.list = []
+
+
+    def enque(self, data):
+        if len(self.list)==self.list_size:
+            print("stack full")
+        else:
+            self.list.append(data)
+
+    def dequeu(self):
+        if len(self.list)==0:
+            print("queue is empty")
+        else:
+            self.list.pop(0)
+
+o1= Queue(1)
+o1.enque(2)
+print(o1.list)
+o1.dequeu()
+print(o1.list)
